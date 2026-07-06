@@ -693,13 +693,20 @@ body {
   width: 120px;
   border-radius: 100px;
   border: none;
-  background-color: #1d1d1d;
+  background-color: #EFEAE6; /* Light cream portfolio background */
   overflow: hidden;
+  transition: all 0.2s ease;
   box-shadow:
-    inset -2px -2px 5px rgba(255, 255, 255, 0.2),
-    inset 2px 2px 5px rgba(0, 0, 0, 0.1),
-    4px 4px 10px rgba(0, 0, 0, 0.4),
-    -2px -2px 8px rgba(255, 255, 255, 0.1);
+    inset 0 0.15rem 0.45rem rgba(255, 255, 255, 0.65),
+    inset 0 -0.05rem 0.15rem rgba(47, 37, 32, 0.15),
+    inset 0 -0.2rem 0.45rem rgba(255, 255, 255, 0.4),
+    0 1rem 1rem rgba(0, 0, 0, 0.2),
+    0 0.3rem 0.3rem -0.2rem rgba(0, 0, 0, 0.4);
+}
+
+.like-button:hover {
+  background-color: #f7f4f2;
+  transform: scale(1.04);
 }
 
 .on { display: none; }
@@ -714,16 +721,17 @@ body {
 }
 
 .like-icon {
-  fill: #505050;
-  height: 28px;
-  width: 28px;
+  fill: #a49b95; /* Soft gray-brown for unfilled state */
+  height: 22px;
+  width: 22px;
   transition: fill 0.2s ease-out;
 }
 
 .like-text {
-  color: #fcfcfc;
+  color: #2f2520; /* Dark brown portfolio text */
   font-size: 14px;
   font-family: 'Outfit', sans-serif;
+  font-weight: 500;
 }
 
 .like-count {
@@ -734,9 +742,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #717070;
+  color: #8c8078;
   font-size: 14px;
-  border-left: 2px solid #4e4e4e;
+  font-family: 'Outfit', sans-serif;
+  border-left: 1.5px solid rgba(47, 37, 32, 0.15);
   transition: all 0.5s ease-out;
 }
 
@@ -751,7 +760,7 @@ body {
 
 .on:checked ~ .like-count.two {
   transform: translateY(0);
-  color: #fcfcfc;
+  color: #2f2520;
 }
 
 .on:checked ~ .like-count.one {
@@ -763,99 +772,7 @@ body {
   100% { transform: scale(1.2); }
 }
 
-/* ---------- Linktree Shift Button ---------- */
-.shift-btn {
-  position: relative;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 40px;
-  padding: 0;
-  border-radius: 100px;
-  border: none;
-  background: none;
-  overflow: visible;
-  outline: none;
-  transition: transform 0.2s ease;
-}
 
-.shift-btn:hover {
-  transform: scale(1.04);
-}
-
-.shift-icon-left,
-.shift-icon-right {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background-color: #1d1d1d;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.3s ease;
-  box-shadow:
-    inset -1px -1px 3px rgba(255, 255, 255, 0.2),
-    inset 1px 1px 3px rgba(0, 0, 0, 0.1),
-    0 4px 6px rgba(0,0,0,0.3);
-  font-size: 13px;
-}
-
-.shift-icon-left {
-  margin-right: -10px;
-  z-index: 3;
-  transform: scale(1);
-  opacity: 1;
-}
-
-.shift-icon-right {
-  position: absolute;
-  right: 0;
-  z-index: 1;
-  transform: scale(0);
-  opacity: 0;
-}
-
-.shift-text-box {
-  background-color: #1d1d1d;
-  color: #fff;
-  padding: 0 16px 0 24px; /* extra left padding to offset the left icon overlap */
-  height: 32px;
-  border-radius: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), padding 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-  box-shadow:
-    inset -1px -1px 3px rgba(255, 255, 255, 0.2),
-    inset 1px 1px 3px rgba(0, 0, 0, 0.1),
-    0 4px 6px rgba(0,0,0,0.3);
-}
-
-.shift-text-box p {
-  margin: 0;
-  font-size: 13px;
-  font-weight: 600;
-  font-family: 'Outfit', sans-serif;
-}
-
-/* Hover States (Right Arrow Reveal Shift Animation) */
-.shift-btn:hover .shift-icon-left {
-  transform: scale(0);
-  opacity: 0;
-}
-
-.shift-btn:hover .shift-text-box {
-  transform: rotate(-6deg) translateX(-12px); /* shift text box left and rotate slightly */
-  padding: 0 24px 0 16px; /* switch padding sides so right side accommodates the icon */
-}
-
-.shift-btn:hover .shift-icon-right {
-  transform: scale(1);
-  opacity: 1;
-}
 
 /* ---------- Pearl Button (React Conversion) ---------- */
 .pearl-button {

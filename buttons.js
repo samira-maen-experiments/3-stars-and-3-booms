@@ -1,5 +1,5 @@
 /* ============================================================
-   buttons.js  –  Like / Linktree / Pearl Button (Framer)
+   buttons.js  –  Like / Pearl Button (Linktree)
    ============================================================ */
 
 // ── Like Button ─────────────────────────────────────────────
@@ -66,20 +66,11 @@ document.addEventListener('mousemove', (e) => {
 
 
 // ── Action Buttons Listeners ─────────────────────────────────
-const linktreeBtn = document.getElementById('linktree-btn');
-const pearlBtn    = document.getElementById('pearl-btn');
-
+const pearlBtn = document.getElementById('pearl-btn');
 const LINKTREE_URL = 'https://linktr.ee/samira.digital.co';
-const FRAMER_URL   = 'https://samiramaen.framer.website/';
-
-if (linktreeBtn) {
-  linktreeBtn.addEventListener('click', () => {
-    window.open(LINKTREE_URL, '_blank', 'noopener,noreferrer');
-  });
-}
 
 if (pearlBtn) {
   pearlBtn.addEventListener('click', () => {
-    window.open(FRAMER_URL, '_blank', 'noopener,noreferrer');
+    window.open(LINKTREE_URL, '_blank', 'noopener,noreferrer');
   });
 }

@@ -692,14 +692,15 @@ body {
   height: 40px;
   width: 120px;
   border-radius: 100px;
-  border: none;
-  background-color: #1d1d1d;
+  border: 1px solid #2f385c;
+  background-color: #1b223c;
   overflow: hidden;
-  box-shadow:
-    inset -2px -2px 5px rgba(255, 255, 255, 0.2),
-    inset 2px 2px 5px rgba(0, 0, 0, 0.1),
-    4px 4px 10px rgba(0, 0, 0, 0.4),
-    -2px -2px 8px rgba(255, 255, 255, 0.1);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.like-button:hover {
+  background-color: #252e50;
+  border-color: #3f4a7c;
 }
 
 .on { display: none; }
@@ -714,7 +715,7 @@ body {
 }
 
 .like-icon {
-  fill: #505050;
+  fill: #80deea;
   height: 28px;
   width: 28px;
   transition: fill 0.2s ease-out;
@@ -734,9 +735,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #717070;
+  color: #80deea;
   font-size: 14px;
-  border-left: 2px solid #4e4e4e;
+  border-left: 1px solid #2f385c;
   transition: all 0.5s ease-out;
 }
 

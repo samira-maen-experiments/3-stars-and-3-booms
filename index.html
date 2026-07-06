@@ -95,6 +95,66 @@
       </div>
     </main>
 
+    <!-- ===== Action Buttons Section ===== -->
+    <section class="action-buttons-section">
+
+      <!-- Like Button -->
+      <label class="like-button" id="like-btn-label">
+        <input type="checkbox" class="on" id="on">
+        <div class="like">
+          <svg class="like-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+          <span class="like-text">Like</span>
+        </div>
+        <div class="like-count one" id="like-count-one">0</div>
+        <div class="like-count two" id="like-count-two">1</div>
+      </label>
+
+      <!-- Linktree Button -->
+      <button class="linktree-btn" id="linktree-btn" title="My Links">
+        <span class="btn-text">🔗 Links</span>
+      </button>
+
+      <!-- Pearl Button with Bear Eyes -->
+      <button class="pearl-button" id="pearl-btn" title="View Portfolio (Framer)">
+        <div class="wrap">
+          <div class="bear-eyes-wrap">
+            <svg class="bear-eyes-svg" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
+              <!-- Left Eye with lashes -->
+              <g class="bear-eye-group" data-cx="60" data-cy="75" data-r="12">
+                <ellipse cx="60" cy="75" rx="30" ry="35" fill="white" stroke="#000" stroke-width="4" />
+                <line x1="60" y1="40" x2="60" y2="25" stroke="#000" stroke-width="4" stroke-linecap="round" />
+                <line x1="45" y1="42" x2="35" y2="30" stroke="#000" stroke-width="4" stroke-linecap="round" />
+                <line x1="75" y1="42" x2="85" y2="30" stroke="#000" stroke-width="4" stroke-linecap="round" />
+                <line x1="33" y1="55" x2="20" y2="50" stroke="#000" stroke-width="4" stroke-linecap="round" />
+                <line x1="87" y1="55" x2="100" y2="50" stroke="#000" stroke-width="4" stroke-linecap="round" />
+                <ellipse class="bear-pupil" cx="60" cy="75" rx="18" ry="22" fill="#000" />
+                <ellipse class="bear-highlight" cx="55" cy="68" rx="5" ry="7" fill="#fff" data-base-cx="55" data-base-cy="68" />
+              </g>
+              <!-- Right Eye with lashes -->
+              <g class="bear-eye-group" data-cx="140" data-cy="75" data-r="12">
+                <ellipse cx="140" cy="75" rx="30" ry="35" fill="white" stroke="#000" stroke-width="4" />
+                <line x1="140" y1="40" x2="140" y2="25" stroke="#000" stroke-width="4" stroke-linecap="round" />
+                <line x1="125" y1="42" x2="115" y2="30" stroke="#000" stroke-width="4" stroke-linecap="round" />
+                <line x1="155" y1="42" x2="165" y2="30" stroke="#000" stroke-width="4" stroke-linecap="round" />
+                <line x1="113" y1="55" x2="100" y2="50" stroke="#000" stroke-width="4" stroke-linecap="round" />
+                <line x1="167" y1="55" x2="180" y2="50" stroke="#000" stroke-width="4" stroke-linecap="round" />
+                <ellipse class="bear-pupil" cx="140" cy="75" rx="18" ry="22" fill="#000" />
+                <ellipse class="bear-highlight" cx="135" cy="68" rx="5" ry="7" fill="#fff" data-base-cx="135" data-base-cy="68" />
+              </g>
+            </svg>
+          </div>
+          <p>
+            <span>✧</span>
+            <span>✦</span>
+            Portfolio
+          </p>
+        </div>
+      </button>
+
+    </section>
+
     <!-- Instructional Modal -->
     <div id="modal-instructions" class="modal-overlay hidden">
       <div class="modal-content glassmorphism">
@@ -125,5 +185,6 @@
   </div>
 
   <script type="module" src="game.js"></script>
+  <script type="module" src="buttons.js"></script>
 </body>
 </html>

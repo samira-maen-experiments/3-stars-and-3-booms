@@ -669,3 +669,269 @@ body {
     opacity: 0;
   }
 }
+
+/* ============================================================
+   ACTION BUTTONS SECTION
+   ============================================================ */
+.action-buttons-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 24px 20px 12px;
+  flex-wrap: wrap;
+}
+
+/* ---------- Like Button (user-provided styles) ---------- */
+#heart { display: none; }
+
+.like-button {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  height: 40px;
+  width: 120px;
+  border-radius: 14px;
+  border: none;
+  background-color: #1d1d1d;
+  overflow: hidden;
+  box-shadow:
+    inset -2px -2px 5px rgba(255, 255, 255, 0.2),
+    inset 2px 2px 5px rgba(0, 0, 0, 0.1),
+    4px 4px 10px rgba(0, 0, 0, 0.4),
+    -2px -2px 8px rgba(255, 255, 255, 0.1);
+}
+
+.on { display: none; }
+
+.like {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.like-icon {
+  fill: #505050;
+  height: 28px;
+  width: 28px;
+  transition: fill 0.2s ease-out;
+}
+
+.like-text {
+  color: #fcfcfc;
+  font-size: 14px;
+  font-family: 'Outfit', sans-serif;
+}
+
+.like-count {
+  position: absolute;
+  right: 0;
+  width: 30%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #717070;
+  font-size: 14px;
+  border-left: 2px solid #4e4e4e;
+  transition: all 0.5s ease-out;
+}
+
+.like-count.two {
+  transform: translateY(40px);
+}
+
+.on:checked ~ .like .like-icon {
+  fill: #fc4e4e;
+  animation: enlarge 0.2s ease-out 1;
+}
+
+.on:checked ~ .like-count.two {
+  transform: translateY(0);
+  color: #fcfcfc;
+}
+
+.on:checked ~ .like-count.one {
+  transform: translateY(-40px);
+}
+
+@keyframes enlarge {
+  0%   { transform: scale(0.5); }
+  100% { transform: scale(1.2); }
+}
+
+/* ---------- Linktree Button ---------- */
+.linktree-btn {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 14px;
+  border: none;
+  background-color: #1d1d1d;
+  align-items: center;
+  justify-content: center;
+  color: #fcfcfc;
+  font-size: 14px;
+  font-family: 'Outfit', sans-serif;
+  box-shadow:
+    inset -2px -2px 5px rgba(255, 255, 255, 0.2),
+    inset 2px 2px 5px rgba(0, 0, 0, 0.1),
+    4px 4px 10px rgba(0, 0, 0, 0.4),
+    -2px -2px 8px rgba(255, 255, 255, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.linktree-btn:hover {
+  transform: scale(1.06);
+  box-shadow:
+    inset -2px -2px 5px rgba(255, 255, 255, 0.2),
+    inset 2px 2px 5px rgba(0, 0, 0, 0.1),
+    6px 6px 18px rgba(0, 0, 0, 0.5),
+    -2px -2px 8px rgba(255, 255, 255, 0.15);
+}
+
+/* ---------- Pearl Button (React Conversion) ---------- */
+.pearl-button {
+  --radius: 100px;
+  outline: none;
+  cursor: pointer;
+  border: 0;
+  position: relative;
+  border-radius: var(--radius);
+  background-color: #080808;
+  transition: all 0.2s ease;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  box-shadow:
+    inset 0 0.15rem 0.45rem rgba(255, 255, 255, 0.3),
+    inset 0 -0.05rem 0.15rem rgba(0, 0, 0, 0.7),
+    inset 0 -0.2rem 0.45rem rgba(255, 255, 255, 0.5),
+    0 1rem 1rem rgba(0, 0, 0, 0.3),
+    0 0.3rem 0.3rem -0.2rem rgba(0, 0, 0, 0.8);
+}
+
+.pearl-button .wrap {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 0 16px;
+  border-radius: inherit;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  gap: 8px;
+}
+
+.pearl-button .wrap p {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  transition: all 0.2s ease;
+  transform: translateY(2%);
+  font-family: 'Outfit', sans-serif;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.pearl-button .wrap p span {
+  font-size: 12px;
+  line-height: 1;
+}
+
+.pearl-button .wrap p span:nth-child(2) {
+  display: none;
+}
+
+.pearl-button:hover .wrap p span:nth-child(1) {
+  display: none;
+}
+
+.pearl-button:hover .wrap p span:nth-child(2) {
+  display: inline-block;
+}
+
+.pearl-button .wrap::before,
+.pearl-button .wrap::after {
+  content: "";
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
+.pearl-button .wrap::before {
+  left: -15%;
+  right: -15%;
+  bottom: 25%;
+  top: -100%;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.pearl-button .wrap::after {
+  left: 6%;
+  right: 6%;
+  top: 12%;
+  bottom: 40%;
+  border-radius: 22px 22px 0 0;
+  box-shadow: inset 0 5px 4px -5px rgba(255, 255, 255, 0.8);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.pearl-button:hover {
+  box-shadow:
+    inset 0 0.15rem 0.25rem rgba(255, 255, 255, 0.4),
+    inset 0 -0.05rem 0.15rem rgba(0, 0, 0, 0.7),
+    inset 0 -0.2rem 0.45rem rgba(255, 255, 255, 0.7),
+    0 1rem 1rem rgba(0, 0, 0, 0.3),
+    0 0.3rem 0.3rem -0.2rem rgba(0, 0, 0, 0.8);
+}
+
+.pearl-button:hover .wrap::before {
+  transform: translateY(-5%);
+}
+
+.pearl-button:hover .wrap::after {
+  opacity: 0.4;
+  transform: translateY(5%);
+}
+
+.pearl-button:hover .wrap p {
+  transform: translateY(-4%);
+}
+
+.pearl-button:active {
+  transform: translateY(2px);
+  box-shadow:
+    inset 0 0.15rem 0.25rem rgba(255, 255, 255, 0.5),
+    inset 0 -0.05rem 0.15rem rgba(0, 0, 0, 0.8),
+    inset 0 -0.2rem 0.45rem rgba(255, 255, 255, 0.4),
+    0 1rem 1rem rgba(0, 0, 0, 0.3),
+    0 0.3rem 0.3rem -0.2rem rgba(0, 0, 0, 0.8);
+}
+
+/* Bear Eyes SVG inside button */
+.pearl-button .bear-eyes-wrap {
+  width: 42px;
+  height: 28px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.pearl-button .bear-eyes-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}

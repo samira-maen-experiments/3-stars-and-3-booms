@@ -692,15 +692,14 @@ body {
   height: 40px;
   width: 120px;
   border-radius: 100px;
-  border: 1px solid #2f385c;
-  background-color: #1b223c;
+  border: none;
+  background-color: #1d1d1d;
   overflow: hidden;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
-}
-
-.like-button:hover {
-  background-color: #252e50;
-  border-color: #3f4a7c;
+  box-shadow:
+    inset -2px -2px 5px rgba(255, 255, 255, 0.2),
+    inset 2px 2px 5px rgba(0, 0, 0, 0.1),
+    4px 4px 10px rgba(0, 0, 0, 0.4),
+    -2px -2px 8px rgba(255, 255, 255, 0.1);
 }
 
 .on { display: none; }
@@ -715,7 +714,7 @@ body {
 }
 
 .like-icon {
-  fill: #80deea;
+  fill: #505050;
   height: 28px;
   width: 28px;
   transition: fill 0.2s ease-out;
@@ -735,9 +734,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #80deea;
+  color: #717070;
   font-size: 14px;
-  border-left: 1px solid #2f385c;
+  border-left: 2px solid #4e4e4e;
   transition: all 0.5s ease-out;
 }
 
@@ -764,36 +763,98 @@ body {
   100% { transform: scale(1.2); }
 }
 
-/* ---------- Linktree Button ---------- */
-.linktree-btn {
+/* ---------- Linktree Shift Button ---------- */
+.shift-btn {
   position: relative;
   cursor: pointer;
   display: flex;
-  height: 40px;
-  padding: 0 18px;
-  border-radius: 100px;
-  border: none;
-  background-color: #1d1d1d;
   align-items: center;
   justify-content: center;
-  color: #fcfcfc;
-  font-size: 14px;
-  font-family: 'Outfit', sans-serif;
-  box-shadow:
-    inset -2px -2px 5px rgba(255, 255, 255, 0.2),
-    inset 2px 2px 5px rgba(0, 0, 0, 0.1),
-    4px 4px 10px rgba(0, 0, 0, 0.4),
-    -2px -2px 8px rgba(255, 255, 255, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 40px;
+  padding: 0;
+  border-radius: 100px;
+  border: none;
+  background: none;
+  overflow: visible;
+  outline: none;
+  transition: transform 0.2s ease;
 }
 
-.linktree-btn:hover {
-  transform: scale(1.06);
+.shift-btn:hover {
+  transform: scale(1.04);
+}
+
+.shift-icon-left,
+.shift-icon-right {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #1d1d1d;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.3s ease;
   box-shadow:
-    inset -2px -2px 5px rgba(255, 255, 255, 0.2),
-    inset 2px 2px 5px rgba(0, 0, 0, 0.1),
-    6px 6px 18px rgba(0, 0, 0, 0.5),
-    -2px -2px 8px rgba(255, 255, 255, 0.15);
+    inset -1px -1px 3px rgba(255, 255, 255, 0.2),
+    inset 1px 1px 3px rgba(0, 0, 0, 0.1),
+    0 4px 6px rgba(0,0,0,0.3);
+  font-size: 13px;
+}
+
+.shift-icon-left {
+  margin-right: -10px;
+  z-index: 3;
+  transform: scale(1);
+  opacity: 1;
+}
+
+.shift-icon-right {
+  position: absolute;
+  right: 0;
+  z-index: 1;
+  transform: scale(0);
+  opacity: 0;
+}
+
+.shift-text-box {
+  background-color: #1d1d1d;
+  color: #fff;
+  padding: 0 16px 0 24px; /* extra left padding to offset the left icon overlap */
+  height: 32px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), padding 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow:
+    inset -1px -1px 3px rgba(255, 255, 255, 0.2),
+    inset 1px 1px 3px rgba(0, 0, 0, 0.1),
+    0 4px 6px rgba(0,0,0,0.3);
+}
+
+.shift-text-box p {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Hover States (Right Arrow Reveal Shift Animation) */
+.shift-btn:hover .shift-icon-left {
+  transform: scale(0);
+  opacity: 0;
+}
+
+.shift-btn:hover .shift-text-box {
+  transform: rotate(-6deg) translateX(-12px); /* shift text box left and rotate slightly */
+  padding: 0 24px 0 16px; /* switch padding sides so right side accommodates the icon */
+}
+
+.shift-btn:hover .shift-icon-right {
+  transform: scale(1);
+  opacity: 1;
 }
 
 /* ---------- Pearl Button (React Conversion) ---------- */
@@ -855,7 +916,7 @@ body {
   bottom: 25%;
   top: -100%;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.15); /* Subtle white gloss reflection */
+  background-color: rgba(255, 255, 255, 0.35); /* Subtle white gloss reflection */
 }
 
 .pearl-button .wrap::after {
@@ -864,10 +925,10 @@ body {
   top: 12%;
   bottom: 40%;
   border-radius: 22px 22px 0 0;
-  box-shadow: inset 0 5px 4px -5px rgba(255, 255, 255, 0.4);
+  box-shadow: inset 0 5px 4px -5px rgba(255, 255, 255, 0.95);
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.5) 0%,
     rgba(255, 255, 255, 0) 50%,
     rgba(255, 255, 255, 0) 100%
   );

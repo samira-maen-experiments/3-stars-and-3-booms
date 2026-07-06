@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bombs & Stars - River Crossing Puzzle</title>
+  <meta name="description" content="Help the Stars cross the chasm without being outnumbered and blown up by the Bombs!">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Google Fonts: Outfit and Orbitron for retro/modern gaming feel -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <header class="game-header">
+      <h1>BOMBS & STARS</h1>
+      <div class="hud">
+        <div class="hud-item">
+          <span class="label">MOVES:</span>
+          <span id="moves-count" class="value">0</span>
+        </div>
+        <div class="hud-item">
+          <span class="label">STATUS:</span>
+          <span id="status-text" class="value text-green">SAFE</span>
+        </div>
+      </div>
+      <div class="controls">
+        <button id="btn-restart" class="btn btn-secondary">Restart</button>
+        <button id="btn-how-to" class="btn btn-info">How to Play</button>
+      </div>
+    </header>
+
+    <main class="game-wrapper">
+      <!-- The fixed-aspect ratio container for absolute positioning of game elements -->
+      <div id="game-container">
+        <!-- Sky / Background -->
+        <div class="sky-bg">
+          <div class="stars-glimmer"></div>
+        </div>
+
+        <!-- Water / Chasm -->
+        <div class="chasm-water"></div>
+
+        <!-- Left Cliff / Bank -->
+        <div class="cliff cliff-left">
+          <div class="grass-top"></div>
+          <div class="soil-bottom"></div>
+        </div>
+
+        <!-- Right Cliff / Bank -->
+        <div class="cliff cliff-right">
+          <div class="grass-top"></div>
+          <div class="soil-bottom"></div>
+        </div>
+
+        <!-- Boat Element -->
+        <div id="game-boat" class="boat-vessel">
+          <img src="Rectangle 9.png" alt="Boat" class="boat-img">
+        </div>
+
+        <!-- Character elements will be placed dynamically by JavaScript, but we will lay them out in absolute coordinates -->
+        <!-- We will create 6 character elements: 3 Stars, 3 Bombs -->
+        <div id="characters-layer">
+          <!-- Dynamically generated characters -->
+        </div>
+
+        <!-- The GO button -->
+        <button id="btn-go" class="go-button-container" disabled>
+          <img src="Frame 15.png" alt="GO" class="go-img">
+        </button>
+
+        <!-- Message Alert Toast -->
+        <div id="toast-message" class="toast hidden"></div>
+
+        <!-- Game Screens (Modals) overlay inside the game container -->
+        <div id="screen-gameover" class="overlay-screen hidden">
+          <div class="card glassmorphism">
+            <h2 class="text-danger animate-shake">EXPLOSION!</h2>
+            <p>The Bombs outnumbered the Stars on the bank and blew them up!</p>
+            <button id="btn-retry-over" class="btn btn-primary btn-lg">Try Again</button>
+          </div>
+        </div>
+
+        <div id="screen-victory" class="overlay-screen hidden">
+          <div class="card glassmorphism animate-bounce">
+            <h2 class="text-success text-glow">VICTORY!</h2>
+            <p>Congratulations! You successfully guided all Stars and Bombs across the chasm safely!</p>
+            <div class="victory-stats">
+              <span>Moves: <strong id="final-moves">0</strong></span>
+            </div>
+            <button id="btn-play-again" class="btn btn-primary btn-lg">Play Again</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Instructional Modal -->
+    <div id="modal-instructions" class="modal-overlay hidden">
+      <div class="modal-content glassmorphism">
+        <h2>How to Play</h2>
+        <div class="modal-body">
+          <p>The goal is to move all <strong>3 Stars</strong> and <strong>3 Bombs</strong> from the right bank to the left bank.</p>
+          <ul>
+            <li><strong>Capacity:</strong> The boat can carry a maximum of 2 characters.</li>
+            <li><strong>Operation:</strong> The boat needs at least 1 character to cross.</li>
+            <li><strong>Safety Rule:</strong> Do not leave the Stars outnumbered by Bombs on either bank! If there are more Bombs than Stars on a side (and there is at least one Star on that side), the Bombs will detonate, and it's game over!</li>
+            <li><strong>How to move characters:</strong>
+              <ul>
+                <li>Click a character on the same side as the boat to load them.</li>
+                <li>Click a character inside the boat to unload them.</li>
+                <li>Click the <strong>GO</strong> button to sail the boat to the opposite bank.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <button id="btn-close-instructions" class="btn btn-primary">Got it!</button>
+      </div>
+    </div>
+
+    <!-- Sound Toggle -->
+    <button id="btn-sound-toggle" class="sound-toggle" aria-label="Toggle Sound">
+      <span class="icon">🔊</span>
+    </button>
+  </div>
+
+  <script type="module" src="game.js"></script>
+</body>
+</html>

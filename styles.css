@@ -691,7 +691,7 @@ body {
   display: flex;
   height: 40px;
   width: 120px;
-  border-radius: 14px;
+  border-radius: 100px;
   border: none;
   background-color: #1d1d1d;
   overflow: hidden;
@@ -769,8 +769,8 @@ body {
   cursor: pointer;
   display: flex;
   height: 40px;
-  padding: 0 16px;
-  border-radius: 14px;
+  padding: 0 18px;
+  border-radius: 100px;
   border: none;
   background-color: #1d1d1d;
   align-items: center;
@@ -803,23 +803,23 @@ body {
   border: 0;
   position: relative;
   border-radius: var(--radius);
-  background-color: #080808;
+  background-color: #f0eae7; /* Light cream portfolio background */
   transition: all 0.2s ease;
   height: 40px;
   display: flex;
   align-items: center;
   box-shadow:
-    inset 0 0.15rem 0.45rem rgba(255, 255, 255, 0.3),
-    inset 0 -0.05rem 0.15rem rgba(0, 0, 0, 0.7),
-    inset 0 -0.2rem 0.45rem rgba(255, 255, 255, 0.5),
-    0 1rem 1rem rgba(0, 0, 0, 0.3),
-    0 0.3rem 0.3rem -0.2rem rgba(0, 0, 0, 0.8);
+    inset 0 0.15rem 0.45rem rgba(255, 255, 255, 0.65),
+    inset 0 -0.05rem 0.15rem rgba(47, 37, 32, 0.15),
+    inset 0 -0.2rem 0.45rem rgba(255, 255, 255, 0.4),
+    0 1rem 1rem rgba(0, 0, 0, 0.2),
+    0 0.3rem 0.3rem -0.2rem rgba(0, 0, 0, 0.4);
 }
 
 .pearl-button .wrap {
   font-size: 13px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.7);
+  font-weight: 700;
+  color: #2f2520; /* Dark brown portfolio text */
   padding: 0 16px;
   border-radius: inherit;
   position: relative;
@@ -838,12 +838,13 @@ body {
   transition: all 0.2s ease;
   transform: translateY(2%);
   font-family: 'Outfit', sans-serif;
-  color: rgba(255, 255, 255, 0.8);
+  color: #2f2520; /* Dark brown portfolio text */
 }
 
 .pearl-button .wrap p span {
   font-size: 12px;
   line-height: 1;
+  color: #2f2520;
 }
 
 .pearl-button .wrap p span:nth-child(2) {
@@ -871,7 +872,7 @@ body {
   bottom: 25%;
   top: -100%;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color: rgba(255, 255, 255, 0.35); /* Subtle white gloss reflection */
 }
 
 .pearl-button .wrap::after {
@@ -880,22 +881,23 @@ body {
   top: 12%;
   bottom: 40%;
   border-radius: 22px 22px 0 0;
-  box-shadow: inset 0 5px 4px -5px rgba(255, 255, 255, 0.8);
+  box-shadow: inset 0 5px 4px -5px rgba(255, 255, 255, 0.95);
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.3) 0%,
-    rgba(0, 0, 0, 0) 50%,
-    rgba(0, 0, 0, 0) 100%
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(255, 255, 255, 0) 100%
   );
 }
 
 .pearl-button:hover {
+  background-color: #f5eeeb; /* slightly lighter cream on hover */
   box-shadow:
-    inset 0 0.15rem 0.25rem rgba(255, 255, 255, 0.4),
-    inset 0 -0.05rem 0.15rem rgba(0, 0, 0, 0.7),
-    inset 0 -0.2rem 0.45rem rgba(255, 255, 255, 0.7),
-    0 1rem 1rem rgba(0, 0, 0, 0.3),
-    0 0.3rem 0.3rem -0.2rem rgba(0, 0, 0, 0.8);
+    inset 0 0.15rem 0.25rem rgba(255, 255, 255, 0.8),
+    inset 0 -0.05rem 0.15rem rgba(47, 37, 32, 0.15),
+    inset 0 -0.2rem 0.45rem rgba(255, 255, 255, 0.6),
+    0 1rem 1rem rgba(0, 0, 0, 0.25),
+    0 0.3rem 0.3rem -0.2rem rgba(0, 0, 0, 0.5);
 }
 
 .pearl-button:hover .wrap::before {
@@ -915,10 +917,10 @@ body {
   transform: translateY(2px);
   box-shadow:
     inset 0 0.15rem 0.25rem rgba(255, 255, 255, 0.5),
-    inset 0 -0.05rem 0.15rem rgba(0, 0, 0, 0.8),
+    inset 0 -0.05rem 0.15rem rgba(47, 37, 32, 0.3),
     inset 0 -0.2rem 0.45rem rgba(255, 255, 255, 0.4),
-    0 1rem 1rem rgba(0, 0, 0, 0.3),
-    0 0.3rem 0.3rem -0.2rem rgba(0, 0, 0, 0.8);
+    0 1rem 1rem rgba(0, 0, 0, 0.2),
+    0 0.3rem 0.3rem -0.2rem rgba(0, 0, 0, 0.4);
 }
 
 /* Bear Eyes SVG inside button */

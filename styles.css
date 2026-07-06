@@ -854,7 +854,7 @@ body {
   bottom: 25%;
   top: -100%;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.35); /* Subtle white gloss reflection */
+  background-color: rgba(255, 255, 255, 0.15); /* Subtle white gloss reflection */
 }
 
 .pearl-button .wrap::after {
@@ -863,10 +863,10 @@ body {
   top: 12%;
   bottom: 40%;
   border-radius: 22px 22px 0 0;
-  box-shadow: inset 0 5px 4px -5px rgba(255, 255, 255, 0.95);
+  box-shadow: inset 0 5px 4px -5px rgba(255, 255, 255, 0.4);
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 255, 255, 0.2) 0%,
     rgba(255, 255, 255, 0) 50%,
     rgba(255, 255, 255, 0) 100%
   );

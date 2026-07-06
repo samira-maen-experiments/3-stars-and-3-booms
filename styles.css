@@ -803,7 +803,7 @@ body {
   border: 0;
   position: relative;
   border-radius: var(--radius);
-  background-color: #f0eae7; /* Light cream portfolio background */
+  background-color: #EFEAE6; /* Light cream portfolio background */
   transition: all 0.2s ease;
   height: 40px;
   display: flex;
@@ -891,7 +891,7 @@ body {
 }
 
 .pearl-button:hover {
-  background-color: #f5eeeb; /* slightly lighter cream on hover */
+  background-color: #f7f4f2; /* slightly lighter cream on hover */
   box-shadow:
     inset 0 0.15rem 0.25rem rgba(255, 255, 255, 0.8),
     inset 0 -0.05rem 0.15rem rgba(47, 37, 32, 0.15),

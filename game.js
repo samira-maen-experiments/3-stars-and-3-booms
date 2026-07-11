@@ -168,6 +168,40 @@ const boatLeftPositions = {
   right: 524
 };
 
+// ----------- Responsive Scaling -----------
+// The game canvas is designed at 1024×600. On smaller screens we
+// apply a CSS scale transform so all the pixel-based coordinates
+// in this file remain valid without any changes.
+const GAME_W = 1024;
+const GAME_H = 600;
+const MOBILE_MARGIN = 24; // px on each side on mobile
+
+function scaleGame() {
+  const wrapper = document.querySelector('.game-wrapper');
+  const container = document.getElementById('game-container');
+  if (!wrapper || !container) return;
+
+  // wrapper.clientWidth already respects body padding set by CSS,
+  // but on mobile we also need to leave 24px margin on each side
+  // for the game itself (within the wrapper).
+  const isMobile = window.innerWidth <= 768;
+  const availableWidth = isMobile
+    ? wrapper.clientWidth - MOBILE_MARGIN * 2  // 24px each side
+    : wrapper.clientWidth;
+
+  const scale = Math.min(availableWidth / GAME_W, 1); // never scale up past 100%
+
+  container.style.transform = `scale(${scale})`;
+  container.style.transformOrigin = 'top center';
+
+  // Pull elements below up — CSS transform doesn't affect layout flow,
+  // so we compensate with a negative bottom margin.
+  const scaledH = GAME_H * scale;
+  container.style.marginBottom = `-${GAME_H - scaledH}px`;
+}
+// ------------------------------------------
+
+
 // Calculate coordinates for a character based on current state
 function getCharacterCoords(char) {
   if (char.inBoat) {
@@ -532,4 +566,9 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Initial Render
   render();
+
+  // Responsive scaling — run on load and on every resize
+  scaleGame();
+  window.addEventListener('resize', scaleGame);
 });
+

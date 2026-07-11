@@ -36,37 +36,43 @@ body {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 1100px;
+  max-width: 1024px;
 }
 
 /* Game Header (HUD & Controls) */
 .game-header {
-  width: 1024px;
+  width: 100%;
+  max-width: 1024px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;          /* wrap on small screens */
+  gap: 10px;
   margin-bottom: 15px;
   padding: 10px 20px;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
   backdrop-filter: blur(10px);
+  box-sizing: border-box;
 }
 
 .game-header h1 {
   font-family: var(--font-retro);
   font-size: 1.8rem;
-  font-weight: 400; /* Regular weight */
+  font-weight: 400;
   background: linear-gradient(45deg, #ffd700, #ff8c00);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
   letter-spacing: 2px;
+  white-space: nowrap;
 }
 
 .hud {
   display: flex;
   gap: 25px;
+  flex-wrap: wrap;
 }
 
 .hud-item {
@@ -89,7 +95,7 @@ body {
 .hud-item .value {
   font-family: var(--font-retro);
   font-size: 1.2rem;
-  font-weight: 400; /* Regular weight */
+  font-weight: 400;
 }
 
 .text-green {
@@ -107,6 +113,7 @@ body {
   gap: 10px;
 }
 
+
 /* Buttons Styling */
 .btn {
   font-family: var(--font-game);
@@ -121,6 +128,7 @@ body {
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  white-space: nowrap;
 }
 
 .btn:active {
@@ -191,17 +199,26 @@ body {
 .game-wrapper {
   perspective: 1000px;
   margin-top: 10px;
+  width: 100%;
+  max-width: 1024px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden; /* clip the 1024px container on small screens */
 }
 
 #game-container {
   width: 1024px;
   height: 600px;
+  flex-shrink: 0; /* never let flexbox squeeze it */
+  align-self: flex-start;
   position: relative;
   background: linear-gradient(to bottom, #001959 0%, #000c2b 55%, #00010c 100%);
   border-radius: 16px;
   border: 2px solid rgba(255, 255, 255, 0.1);
   overflow: hidden;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+  transform-origin: top center;
+  will-change: transform;
 }
 
 /* Glimmering Sky Effect */
@@ -897,4 +914,87 @@ body {
   width: 100%;
   height: 100%;
   display: block;
+}
+
+/* ============================================================
+   RESPONSIVE / SCALE SUPPORT
+   ============================================================ */
+
+/* #game-container transform-origin is set directly in the element block above */
+
+
+/* Shrink header text & HUD on smaller screens */
+@media (max-width: 768px) {
+  body {
+    padding: 24px;
+  }
+
+  .game-header h1 {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+  }
+
+  .hud {
+    gap: 10px;
+  }
+
+  .hud-item {
+    padding: 4px 10px;
+  }
+
+  .hud-item .label {
+    font-size: 0.68rem;
+  }
+
+  .hud-item .value {
+    font-size: 1rem;
+  }
+
+  .btn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-header {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 10px;
+  }
+
+  .game-header h1 {
+    font-size: 1rem;
+  }
+
+  .hud {
+    gap: 6px;
+  }
+
+  .hud-item .label {
+    display: none; /* hide labels on very small screens to save space */
+  }
+
+  .controls {
+    gap: 6px;
+  }
+
+  .btn {
+    padding: 5px 10px;
+    font-size: 0.75rem;
+  }
+
+  .action-buttons-section {
+    padding: 16px 12px 8px;
+    gap: 12px;
+  }
+
+  .sound-toggle {
+    bottom: 12px;
+    right: 12px;
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+  }
 }

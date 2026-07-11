@@ -172,24 +172,18 @@ const boatLeftPositions = {
 // The game canvas is designed at 1024×600. On smaller screens we
 // apply a CSS scale transform so all the pixel-based coordinates
 // in this file remain valid without any changes.
+// Body has 48px padding on each side — wrapper.clientWidth already
+// reflects the available space after margins.
 const GAME_W = 1024;
 const GAME_H = 600;
-const MOBILE_MARGIN = 24; // px on each side on mobile
 
 function scaleGame() {
   const wrapper = document.querySelector('.game-wrapper');
   const container = document.getElementById('game-container');
   if (!wrapper || !container) return;
 
-  // wrapper.clientWidth already respects body padding set by CSS,
-  // but on mobile we also need to leave 24px margin on each side
-  // for the game itself (within the wrapper).
-  const isMobile = window.innerWidth <= 768;
-  const availableWidth = isMobile
-    ? wrapper.clientWidth - MOBILE_MARGIN * 2  // 24px each side
-    : wrapper.clientWidth;
-
-  const scale = Math.min(availableWidth / GAME_W, 1); // never scale up past 100%
+  // wrapper.clientWidth = full screen minus body's 48px padding each side
+  const scale = Math.min(wrapper.clientWidth / GAME_W, 1); // never scale up past 100%
 
   container.style.transform = `scale(${scale})`;
   container.style.transformOrigin = 'top center';

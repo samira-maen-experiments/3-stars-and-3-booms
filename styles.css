@@ -27,7 +27,7 @@ body {
   align-items: center;
   justify-content: center;
   overflow-x: hidden;
-  padding: 20px;
+  padding: 20px 48px;
 }
 
 /* App Wrapper */
@@ -36,17 +36,15 @@ body {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 1024px;
 }
 
 /* Game Header (HUD & Controls) */
 .game-header {
   width: 100%;
-  max-width: 1024px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;          /* wrap on small screens */
+  flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 15px;
   padding: 10px 20px;
@@ -200,10 +198,9 @@ body {
   perspective: 1000px;
   margin-top: 10px;
   width: 100%;
-  max-width: 1024px;
   display: flex;
   justify-content: center;
-  overflow: hidden; /* clip the 1024px container on small screens */
+  overflow: hidden;
 }
 
 #game-container {
